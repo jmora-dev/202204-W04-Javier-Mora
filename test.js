@@ -5,8 +5,8 @@ export function runTest(testFunction) {
 }
 
 const TEST_RESULTS = {
-	PASS: '👍 PASS',
-	FAIL: '😢 FAIL',
+	PASS: 'PASS',
+	FAIL: 'FAIL!!!',
 };
 
 function cero_equals_negative_cero(testFunction) {
