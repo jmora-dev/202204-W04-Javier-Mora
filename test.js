@@ -1,4 +1,4 @@
-export function RunTest(testFunction) {
+export function runTest(testFunction) {
 	console.log(cero_equals_negative_cero(testFunction));
 	console.log(negative_cero_equals_cero(testFunction));
 	console.log(nan_equals_nan(testFunction));
