@@ -1,19 +1,19 @@
 export function runTest(testFunction) {
-	console.log(cero_equals_negative_cero(testFunction));
-	console.log(negative_cero_equals_cero(testFunction));
-	console.log(number_equals_nan(testFunction));
-	console.log(nan_equals_nan(testFunction));
-	console.log(number_equals_same_number(testFunction));
-	console.log(number_equals_other_number(testFunction));
-	console.log(number_equals_string(testFunction));
-	console.log(number_equals_boolean(testFunction));
-	console.log(boolean_equals_same_boolean(testFunction));
-	console.log(boolean_equals_other_boolean(testFunction));
-	console.log(string_equals_same_string(testFunction));
-	console.log(string_equals_other_string(testFunction));
-	console.log(null_equals_null(testFunction));
-	console.log(undefined_equals_undefined(testFunction));
-	console.log(infinity_equals_infinity(testFunction));
+	console.log(strictEqual_ceroEqualNegativeCero_true(testFunction));
+	console.log(strictEqual_negativeCeroEqualCero_true(testFunction));
+	console.log(strictEqual_ceroEqualNan_false(testFunction));
+	console.log(strictEqual_nanEqualNan_false(testFunction));
+	console.log(strictEqual_fiveEqualFive_true(testFunction));
+	console.log(strictEqual_fiveEqualTen_false(testFunction));
+	console.log(strictEqual_fiveEqualFiveString_false(testFunction));
+	console.log(strictEqual_oneEqualTrue_false(testFunction));
+	console.log(strictEqual_trueEqualTrue_true(testFunction));
+	console.log(strictEqual_trueEqualFalse_false(testFunction));
+	console.log(strictEqual_textStringEqualTextString_true(testFunction));
+	console.log(strictEqual_textStringEqualOtherString_false(testFunction));
+	console.log(strictEqual_nullEqualNull_true(testFunction));
+	console.log(strictEqual_undefinedEqualUndefined_true(testFunction));
+	console.log(strictEqual_infinityEqualInfinity_true(testFunction));
 }
 
 const TEST_RESULTS = {
@@ -21,91 +21,91 @@ const TEST_RESULTS = {
 	FAIL: 'FAIL!!!',
 };
 
-function cero_equals_negative_cero(testFunction) {
+function strictEqual_ceroEqualNegativeCero_true(testFunction) {
 	const value = testFunction(0, -0);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: 0 === -0 = ${value}`;
 }
 
-function negative_cero_equals_cero(testFunction) {
+function strictEqual_negativeCeroEqualCero_true(testFunction) {
 	const value = testFunction(-0, 0);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: -0 === 0 = ${value}`;
 }
 
-function number_equals_nan(testFunction) {
-	const value = testFunction(0, NaN);
-	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
-	return `${result}: 0 === NaN = ${value}`;
-}
-
-function nan_equals_nan(testFunction) {
+function strictEqual_nanEqualNan_false(testFunction) {
 	const value = testFunction(NaN, NaN);
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: NaN === NaN = ${value}`;
 }
 
-function number_equals_same_number(testFunction) {
+function strictEqual_ceroEqualNan_false(testFunction) {
+	const value = testFunction(0, NaN);
+	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
+	return `${result}: 0 === NaN = ${value}`;
+}
+
+function strictEqual_fiveEqualFive_true(testFunction) {
 	const value = testFunction(5, 5);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: 5 === 5 = ${value}`;
 }
 
-function number_equals_other_number(testFunction) {
+function strictEqual_fiveEqualTen_false(testFunction) {
 	const value = testFunction(5, 10);
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: 5 === 10 = ${value}`;
 }
 
-function number_equals_string(testFunction) {
+function strictEqual_fiveEqualFiveString_false(testFunction) {
 	const value = testFunction(5, '5');
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: 5 === "5" = ${value}`;
 }
 
-function number_equals_boolean(testFunction) {
+function strictEqual_oneEqualTrue_false(testFunction) {
 	const value = testFunction(1, true);
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: 1 === true = ${value}`;
 }
 
-function boolean_equals_same_boolean(testFunction) {
+function strictEqual_trueEqualTrue_true(testFunction) {
 	const value = testFunction(true, true);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: true === true = ${value}`;
 }
 
-function boolean_equals_other_boolean(testFunction) {
+function strictEqual_trueEqualFalse_false(testFunction) {
 	const value = testFunction(true, false);
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: true === false = ${value}`;
 }
 
-function string_equals_same_string(testFunction) {
+function strictEqual_textStringEqualTextString_true(testFunction) {
 	const value = testFunction('text', 'text');
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: "text" === "text" = ${value}`;
 }
 
-function string_equals_other_string(testFunction) {
+function strictEqual_textStringEqualOtherString_false(testFunction) {
 	const value = testFunction('text', 'other');
 	const result = value ? TEST_RESULTS.FAIL : TEST_RESULTS.PASS;
 	return `${result}: "text" === "other" = ${value}`;
 }
 
-function null_equals_null(testFunction) {
+function strictEqual_nullEqualNull_true(testFunction) {
 	const value = testFunction(null, null);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: null === null = ${value}`;
 }
 
-function undefined_equals_undefined(testFunction) {
+function strictEqual_undefinedEqualUndefined_true(testFunction) {
 	const value = testFunction(undefined, undefined);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: undefined === undefined = ${value}`;
 }
 
-function infinity_equals_infinity(testFunction) {
+function strictEqual_infinityEqualInfinity_true(testFunction) {
 	const value = testFunction(Infinity, Infinity);
 	const result = value ? TEST_RESULTS.PASS : TEST_RESULTS.FAIL;
 	return `${result}: Infinity === Infinity = ${value}`;
