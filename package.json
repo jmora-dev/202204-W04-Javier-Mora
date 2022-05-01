@@ -1,0 +1,22 @@
+{
+	"name": "js-new-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Javier Mora",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.14.0",
+		"eslint-config-prettier": "^8.5.0",
+		"prettier": "^2.6.2"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"useTabs": true
+	}
+}
