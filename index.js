@@ -1,4 +1,3 @@
-import { strictEquals } from './strictEquals.js';
-import { runTest } from './test.js';
+import { runTestStrictEquals } from './test.js';
 
-runTest(strictEquals);
+runTestStrictEquals();
